@@ -13,13 +13,15 @@
 
 @import "base/typography";
 
+@import "components/button";
+@import "components/link";
+@import "components/fallback";
+
 @import "layout/containers";
 @import "layout/footer";
 @import "layout/header";
 @import "layout/section";
 
-@import "components/button";
-@import "components/link";
-@import "components/fallback";
+@import "pages/home";
 
 @import "shame/shame";

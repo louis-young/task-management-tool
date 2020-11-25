@@ -5,31 +5,30 @@ import "./Form.scss";
 const Form = ({ createTask }) => {
   const [task, setTask] = useState("");
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     createTask(task);
-  };
 
-  const handleChange = event => {
-    setTask(event.target.value);
+    setTask("");
   };
 
   return (
     <form
       className="form"
-      onSubmit={event => {
+      onSubmit={(event) => {
         handleSubmit(event);
       }}
     >
       <input
         className="form__input"
-        onChange={event => {
-          handleChange(event);
+        onChange={(event) => {
+          setTask(event.target.value);
         }}
+        value={task}
       />
       <button className="form__submit" type="submit">
-        Add
+        Save
       </button>
     </form>
   );
