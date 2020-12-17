@@ -2,21 +2,27 @@ import React, { useState } from "react";
 
 import "./Form.scss";
 
-const Form = ({ createTask }) => {
+const Form = ({ tasks, createTask }) => {
   const [task, setTask] = useState("");
 
   const generateRandomNumber = () => {
     const range = {
-      start: 1000,
-      end: 1000000000,
+      start: 1,
+      end: 1000000,
     };
 
     const id = Math.floor(Math.random() * range.end) + range.start;
 
+    const duplicate = tasks.some((task) => task.id === id);
+
+    if (duplicate) {
+      return generateRandomNumber();
+    }
+
     return id;
   };
 
-  const handleSubmit = (event) => {
+  const addTask = (event) => {
     event.preventDefault();
 
     createTask({
@@ -31,7 +37,7 @@ const Form = ({ createTask }) => {
     <form
       className="form"
       onSubmit={(event) => {
-        handleSubmit(event);
+        addTask(event);
       }}
     >
       <input

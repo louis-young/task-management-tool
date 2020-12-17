@@ -34,7 +34,7 @@ const App = () => {
 
   return (
     <main className="application">
-      <Form createTask={createTask} />
+      <Form tasks={tasks} createTask={createTask} />
       <List tasks={tasks} deleteTask={deleteTask} />
     </main>
   );
