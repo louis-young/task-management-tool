@@ -5,10 +5,24 @@ import "./Form.scss";
 const Form = ({ createTask }) => {
   const [task, setTask] = useState("");
 
+  const generateRandomNumber = () => {
+    const range = {
+      start: 1000,
+      end: 1000000000,
+    };
+
+    const id = Math.floor(Math.random() * range.end) + range.start;
+
+    return id;
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    createTask(task);
+    createTask({
+      id: generateRandomNumber(),
+      text: task,
+    });
 
     setTask("");
   };

@@ -26,11 +26,17 @@ const App = () => {
     setTasks([...tasks, task]);
   };
 
+  const deleteTask = (id) => {
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+
+    setTasks(updatedTasks);
+  };
+
   return (
-    <div className="App">
+    <main className="application">
       <Form createTask={createTask} />
-      <List tasks={tasks} />
-    </div>
+      <List tasks={tasks} deleteTask={deleteTask} />
+    </main>
   );
 };
 
