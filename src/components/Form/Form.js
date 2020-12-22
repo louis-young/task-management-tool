@@ -1,32 +1,17 @@
 import React, { useState } from "react";
 
+import { v4 as uuidv4 } from "uuid";
+
 import "./Form.scss";
 
 const Form = ({ tasks, createTask }) => {
   const [task, setTask] = useState("");
 
-  const generateRandomNumber = () => {
-    const range = {
-      start: 1,
-      end: 1000000,
-    };
-
-    const id = Math.floor(Math.random() * range.end) + range.start;
-
-    const duplicate = tasks.some((task) => task.id === id);
-
-    if (duplicate) {
-      return generateRandomNumber();
-    }
-
-    return id;
-  };
-
   const addTask = (event) => {
     event.preventDefault();
 
     createTask({
-      id: generateRandomNumber(),
+      id: uuidv4(),
       text: task,
     });
 

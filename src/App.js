@@ -23,7 +23,7 @@ const App = () => {
   }, [tasks]);
 
   const createTask = (task) => {
-    setTasks([...tasks, task]);
+    setTasks((tasks) => [...tasks, task]);
   };
 
   const deleteTask = (id) => {
