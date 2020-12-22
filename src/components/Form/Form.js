@@ -48,8 +48,8 @@ const Form = ({ dispatch }) => {
         ref={inputRef}
         autoFocus
       />
-      <button className="form__submit" type="submit">
-        Save
+      <button className="form__submit button" type="submit">
+        Add
       </button>
     </form>
   );

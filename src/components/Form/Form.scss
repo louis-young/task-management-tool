@@ -1,0 +1,18 @@
+@import "../../stylesheets/abstracts/variables";
+@import "../../stylesheets/abstracts/extends";
+
+.form {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 1rem;
+  &__input,
+  &__submit {
+    @extend %round;
+    height: 55px;
+  }
+  &__input {
+    box-shadow: unset;
+    background: #f1f7ff;
+  }
+}

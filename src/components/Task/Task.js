@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 
 import { DELETE } from "../../actions/types";
 
+import icon from "../../assets/delete.svg";
+
 import "./Task.scss";
 
 const Task = ({ task, dispatch }) => {
@@ -13,7 +15,14 @@ const Task = ({ task, dispatch }) => {
     dispatch({ type: DELETE, id });
   };
 
-  return <li onClick={deleteTask}>{text}</li>;
+  return (
+    <li className="task">
+      <p className="task__text">{text}</p>
+      <button onClick={deleteTask} className="task__delete">
+        <img className="task__icon" src={icon} alt="Delete" />
+      </button>
+    </li>
+  );
 };
 
 Task.propTypes = {

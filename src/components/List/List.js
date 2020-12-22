@@ -13,9 +13,11 @@ const List = ({ tasks, dispatch }) => {
 
   return (
     <section>
-      {tasks.map((task) => (
-        <Task task={task} dispatch={dispatch} key={task.id} />
-      ))}
+      <ul className="list">
+        {tasks.map((task) => (
+          <Task task={task} dispatch={dispatch} key={task.id} />
+        ))}
+      </ul>
     </section>
   );
 };

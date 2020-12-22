@@ -2,6 +2,8 @@
 
 React application to manage and locally persist tasks.
 
+![Task Manager](documentation/task-manager.jpg)
+
 ## Available Scripts
 
 In the project directory, you can run:

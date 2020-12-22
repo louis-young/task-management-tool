@@ -30,7 +30,7 @@ const App = () => {
   }, [tasks]);
 
   return (
-    <main className="application">
+    <main className="application container container--extra-small">
       <Form dispatch={dispatch} />
       <List tasks={tasks} dispatch={dispatch} />
     </main>

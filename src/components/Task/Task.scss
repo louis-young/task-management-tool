@@ -1,0 +1,39 @@
+@import "../../stylesheets/abstracts/variables";
+@import "../../stylesheets/abstracts/extends";
+
+.task {
+  @extend %round;
+  $self: &;
+  background: #fcfcfc;
+  padding: 1rem 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 2rem;
+  align-items: flex-start;
+  transition: background 0.2s ease-in-out;
+  &:hover {
+    background: #f1f7ff;
+
+    #{$self}__icon {
+      opacity: 0.8;
+    }
+  }
+  &__text {
+    padding: unset;
+    line-height: 1.5;
+  }
+  &__delete {
+    background: unset;
+    padding: unset;
+    border: unset;
+    cursor: pointer;
+  }
+  &__icon {
+    width: 25px;
+    opacity: 0.4;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      transform: rotate(90deg);
+    }
+  }
+}
