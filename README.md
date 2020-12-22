@@ -1,6 +1,6 @@
-# Paste Saver
+# Task Manager
 
-React application to locally save clipboard contents.
+React application to manage tasks and locally persist them.
 
 ## Available Scripts
 

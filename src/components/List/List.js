@@ -2,26 +2,26 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import Paste from "../Paste/Paste";
+import Task from "../Task/Task";
 
 import "./List.scss";
 
-const List = ({ pastes, dispatch }) => {
-  if (!pastes) {
+const List = ({ tasks, dispatch }) => {
+  if (!tasks) {
     return null;
   }
 
   return (
     <section>
-      {pastes.map((paste) => (
-        <Paste paste={paste} dispatch={dispatch} key={paste.id} />
+      {tasks.map((task) => (
+        <Task task={task} dispatch={dispatch} key={task.id} />
       ))}
     </section>
   );
 };
 
 List.propTypes = {
-  pastes: PropTypes.array,
+  tasks: PropTypes.array,
   dispatch: PropTypes.func,
 };
 

@@ -8,31 +8,31 @@ import List from "./components/List/List";
 import "./stylesheets/main.scss";
 
 const App = () => {
-  const reducer = (pastes, action) => {
-    const { type, paste, id } = action;
+  const reducer = (tasks, action) => {
+    const { type, task, id } = action;
 
     switch (type) {
       case CREATE:
-        return [...pastes, paste];
+        return [...tasks, task];
       case DELETE:
-        return pastes.filter((paste) => paste.id !== id);
+        return tasks.filter((task) => task.id !== id);
       default:
         throw new Error(`Unexpected action.`);
     }
   };
 
-  const initialPastes = localStorage.pastes ? JSON.parse(localStorage.pastes) : [];
+  const initialTasks = localStorage.tasks ? JSON.parse(localStorage.tasks) : [];
 
-  const [pastes, dispatch] = useReducer(reducer, initialPastes);
+  const [tasks, dispatch] = useReducer(reducer, initialTasks);
 
   useEffect(() => {
-    localStorage.pastes = JSON.stringify(pastes);
-  }, [pastes]);
+    localStorage.tasks = JSON.stringify(tasks);
+  }, [tasks]);
 
   return (
     <main className="application">
       <Form dispatch={dispatch} />
-      <List pastes={pastes} dispatch={dispatch} />
+      <List tasks={tasks} dispatch={dispatch} />
     </main>
   );
 };

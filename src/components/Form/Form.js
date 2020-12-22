@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 
 import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
@@ -14,16 +14,12 @@ const Form = ({ dispatch }) => {
 
   const inputRef = useRef();
 
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
-
-  const createPaste = () => {
+  const createTask = () => {
     const id = uuidv4();
 
     dispatch({
       type: CREATE,
-      paste: {
+      task: {
         id,
         text: value,
       },
@@ -33,7 +29,7 @@ const Form = ({ dispatch }) => {
   const submit = (event) => {
     event.preventDefault();
 
-    createPaste();
+    createTask();
 
     setValue(initialValue);
 
@@ -49,6 +45,7 @@ const Form = ({ dispatch }) => {
         }}
         value={value}
         ref={inputRef}
+        autoFocus
       />
       <button className="form__submit" type="submit">
         Save
