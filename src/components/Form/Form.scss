@@ -1,11 +1,15 @@
 @import "../../stylesheets/abstracts/variables";
 @import "../../stylesheets/abstracts/extends";
+@import "../../stylesheets/abstracts/breakpoints";
 
 .form {
   margin-top: 4rem;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr;
   grid-gap: 1rem;
+  @include tablet {
+    grid-template-columns: 1fr auto;
+  }
   &__input,
   &__submit {
     @extend %round;
