@@ -47,6 +47,7 @@ const Form = ({ dispatch }) => {
         value={value}
         ref={inputRef}
         autoFocus
+        required
       />
       <button className="form__submit button" type="submit">
         Add
