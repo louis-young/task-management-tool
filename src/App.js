@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from "react";
 
-import types from "./actions/types";
+import { CREATE, DELETE } from "./actions/types";
 
 import Form from "./components/Form/Form";
 import List from "./components/List/List";
@@ -12,9 +12,9 @@ const App = () => {
     const { type, paste, id } = action;
 
     switch (type) {
-      case types.CREATE:
+      case CREATE:
         return [...pastes, paste];
-      case types.DELETE:
+      case DELETE:
         return pastes.filter((paste) => paste.id !== id);
       default:
         throw new Error(`Unexpected action.`);

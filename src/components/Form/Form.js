@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 import { v4 as uuidv4 } from "uuid";
 
-import types from "../../actions/types";
+import { CREATE } from "../../actions/types";
 
 import "./Form.scss";
 
@@ -21,7 +21,7 @@ const Form = ({ dispatch }) => {
     const id = uuidv4();
 
     dispatch({
-      type: types.CREATE,
+      type: CREATE,
       paste: {
         id,
         text: value,

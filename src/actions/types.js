@@ -1,6 +1,2 @@
-const types = {
-  CREATE: "CREATE",
-  DELETE: "DELETE",
-};
-
-export default types;
+export const CREATE = "CREATE";
+export const DELETE = "DELETE";
