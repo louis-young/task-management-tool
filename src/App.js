@@ -7,22 +7,22 @@ import List from "./components/List/List";
 
 import "./stylesheets/main.scss";
 
+const reducer = (tasks, action) => {
+  const { type, task, id } = action;
+
+  switch (type) {
+    case CREATE:
+      return [...tasks, task];
+    case DELETE:
+      return tasks.filter((task) => task.id !== id);
+    default:
+      throw new Error(`Unexpected action.`);
+  }
+};
+
+const initialTasks = localStorage.tasks ? JSON.parse(localStorage.tasks) : [];
+
 const App = () => {
-  const reducer = (tasks, action) => {
-    const { type, task, id } = action;
-
-    switch (type) {
-      case CREATE:
-        return [...tasks, task];
-      case DELETE:
-        return tasks.filter((task) => task.id !== id);
-      default:
-        throw new Error(`Unexpected action.`);
-    }
-  };
-
-  const initialTasks = localStorage.tasks ? JSON.parse(localStorage.tasks) : [];
-
   const [tasks, dispatch] = useReducer(reducer, initialTasks);
 
   useEffect(() => {
