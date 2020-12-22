@@ -1,17 +1,19 @@
 import React from "react";
 
+import Paste from "../Paste/Paste";
+
 import "./List.scss";
 
-const List = ({ tasks, deleteTask }) => {
+const List = ({ pastes, dispatch }) => {
+  if (!pastes) {
+    return null;
+  }
+
   return (
     <section>
-      {tasks
-        ? tasks.map((task) => (
-            <li key={task.id} onClick={() => deleteTask(task.id)}>
-              {task.text}
-            </li>
-          ))
-        : null}
+      {pastes.map((paste) => (
+        <Paste paste={paste} dispatch={dispatch} key={paste.id} />
+      ))}
     </section>
   );
 };

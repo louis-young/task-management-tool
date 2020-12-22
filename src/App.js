@@ -1,41 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useReducer, useEffect } from "react";
 
-import "./stylesheets/main.scss";
+import types from "./actions/types";
 
 import Form from "./components/Form/Form";
 import List from "./components/List/List";
 
+import "./stylesheets/main.scss";
+
 const App = () => {
-  const [tasks, setTasks] = useState([]);
+  const reducer = (pastes, action) => {
+    const { type, paste, id } = action;
 
-  useEffect(() => {
-    if (!localStorage.tasks) {
-      return;
+    switch (type) {
+      case types.CREATE:
+        return [...pastes, paste];
+      case types.DELETE:
+        return pastes.filter((paste) => paste.id !== id);
+      default:
+        throw new Error(`Unexpected action.`);
     }
+  };
 
-    const savedTasks = JSON.parse(localStorage.tasks);
+  const initialPastes = localStorage.pastes ? JSON.parse(localStorage.pastes) : [];
 
-    setTasks(savedTasks);
-  }, []);
+  const [pastes, dispatch] = useReducer(reducer, initialPastes);
 
   useEffect(() => {
-    localStorage.tasks = JSON.stringify(tasks);
-  }, [tasks]);
-
-  const createTask = (task) => {
-    setTasks((tasks) => [...tasks, task]);
-  };
-
-  const deleteTask = (id) => {
-    const updatedTasks = tasks.filter((task) => task.id !== id);
-
-    setTasks(updatedTasks);
-  };
+    localStorage.pastes = JSON.stringify(pastes);
+  }, [pastes]);
 
   return (
     <main className="application">
-      <Form tasks={tasks} createTask={createTask} />
-      <List tasks={tasks} deleteTask={deleteTask} />
+      <Form dispatch={dispatch} />
+      <List pastes={pastes} dispatch={dispatch} />
     </main>
   );
 };
