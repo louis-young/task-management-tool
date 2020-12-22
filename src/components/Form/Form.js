@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
+import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 
 import { CREATE } from "../../actions/types";
@@ -54,6 +55,10 @@ const Form = ({ dispatch }) => {
       </button>
     </form>
   );
+};
+
+Form.propTypes = {
+  dispatch: PropTypes.func,
 };
 
 export default Form;

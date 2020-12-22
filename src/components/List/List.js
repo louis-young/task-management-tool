@@ -1,5 +1,7 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 import Paste from "../Paste/Paste";
 
 import "./List.scss";
@@ -16,6 +18,11 @@ const List = ({ pastes, dispatch }) => {
       ))}
     </section>
   );
+};
+
+List.propTypes = {
+  pastes: PropTypes.array,
+  dispatch: PropTypes.func,
 };
 
 export default List;
