@@ -1,6 +1,6 @@
 # Task Manager
 
-React application to manage tasks and locally persist them.
+React application to manage and locally persist tasks.
 
 ## Available Scripts
 
