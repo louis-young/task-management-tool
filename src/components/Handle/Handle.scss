@@ -4,36 +4,40 @@
 
 .handle {
   $self: &;
-  width: 25px;
-  height: 15px;
-  background: transparent;
-  position: relative;
-  padding: initial;
-  cursor: pointer;
-  border: unset;
-  transition: all 0.35s ease-in-out;
-  z-index: 4;
-  outline: none;
-  color: $dark-background;
-  margin: 1rem;
-  margin-right: unset;
-  opacity: 0.75;
-  &:before,
-  &:after,
-  &__line {
-    @extend %pseudo;
-    right: 0;
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    background: $dark-background;
-    transition: all 0.25s ease-in-out;
-  }
-  &:before {
-    top: 0;
-  }
-  &:after {
-    top: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__button {
+    width: 25px;
+    height: 15px;
+    background: transparent;
+    position: relative;
+    padding: initial;
+    cursor: grab;
+    border: unset;
+    transition: all 0.35s ease-in-out;
+    z-index: 4;
+    outline: none;
+    color: $dark-background;
+    opacity: 0.75;
+    &:before,
+    &:after,
+    #{$self}__line {
+      @extend %pseudo;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background: $dark-background;
+      transition: all 0.25s ease-in-out;
+    }
+    &:before {
+      top: 0;
+    }
+    &:after {
+      top: 100%;
+    }
   }
   &__line {
     top: 50%;

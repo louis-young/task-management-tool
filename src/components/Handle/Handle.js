@@ -6,9 +6,11 @@ import "./Handle.scss";
 
 const Handle = ({ handle }) => {
   return (
-    <button className="handle" {...handle}>
-      <span className="handle__line"></span>
-    </button>
+    <div className="handle" {...handle}>
+      <button className="handle__button">
+        <span className="handle__line"></span>
+      </button>
+    </div>
   );
 };
 
