@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react";
 
 import PropTypes from "prop-types";
 
@@ -8,7 +8,7 @@ import icon from "../../assets/delete.svg";
 
 import "./Task.scss";
 
-const Task = ({ task, dispatch }) => {
+const Task = forwardRef(({ task, dispatch }, ref) => {
   const { id, text } = task;
 
   const [editing, setEditing] = useState(false);
@@ -37,7 +37,7 @@ const Task = ({ task, dispatch }) => {
   };
 
   return editing ? (
-    <form className={editing ? "task task--editable" : "task"} onSubmit={submit} onBlur={submit}>
+    <form className={editing ? "task task--editable" : "task"} onSubmit={submit} onBlur={submit} ref={ref}>
       <input
         value={value}
         onChange={(event) => setValue(event.target.value)}
@@ -50,14 +50,14 @@ const Task = ({ task, dispatch }) => {
       </button>
     </form>
   ) : (
-    <li className="task" onClick={() => setEditing((editing) => !editing)}>
+    <li className="task" onClick={() => setEditing((editing) => !editing)} ref={ref}>
       <p className="task__text">{text}</p>
       <button onClick={deleteTask} className="task__delete">
         <img className="task__icon" src={icon} alt="Delete" />
       </button>
     </li>
   );
-};
+});
 
 Task.propTypes = {
   task: PropTypes.object,
