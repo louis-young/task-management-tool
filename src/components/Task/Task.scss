@@ -40,10 +40,11 @@
   }
   &__icon {
     width: 20px;
-    opacity: 0.8;
+    opacity: 0.75;
     transition: all 0.2s ease-in-out;
     &:hover {
       transform: rotate(360deg);
+      filter: invert(50%) sepia(99%) saturate(276%) hue-rotate(114deg) brightness(91%) contrast(85%);
     }
   }
   &__input {
