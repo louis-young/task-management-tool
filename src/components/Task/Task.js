@@ -45,7 +45,7 @@ const Task = forwardRef(({ task, dispatch }, ref) => {
         required
         autoFocus
       />
-      <button className="task__delete">
+      <button onClick={deleteTask} className="task__delete">
         <img className="task__icon" src={icon} alt="Delete" />
       </button>
     </form>
