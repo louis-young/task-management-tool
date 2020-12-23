@@ -8,7 +8,7 @@ import icon from "../../assets/delete.svg";
 
 import "./Task.scss";
 
-const Task = forwardRef(({ task, dispatch, draggable, handle, placeholder }, ref) => {
+const Task = forwardRef(({ task, dispatch, draggable, handle }, ref) => {
   const { id, text } = task;
 
   const [editing, setEditing] = useState(false);
@@ -74,6 +74,8 @@ const Task = forwardRef(({ task, dispatch, draggable, handle, placeholder }, ref
 Task.propTypes = {
   task: PropTypes.object,
   dispatch: PropTypes.func,
+  draggable: PropTypes.object,
+  handle: PropTypes.object,
 };
 
 export default Task;
