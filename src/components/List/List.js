@@ -2,7 +2,7 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import { SET } from "../../actions/types";
+import { REORDER } from "../../actions/types";
 
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
@@ -11,24 +11,12 @@ import Task from "../Task/Task";
 import "./List.scss";
 
 const List = ({ tasks, dispatch }) => {
-  const reorderTasks = (tasks, startIndex, endIndex) => {
-    const result = Array.from(tasks);
-
-    const [removed] = result.splice(startIndex, 1);
-
-    result.splice(endIndex, 0, removed);
-
-    return result;
-  };
-
   const handleOnDragEnd = (result) => {
     if (!result.destination) {
       return;
     }
 
-    const reorderedTasks = reorderTasks(tasks, result.source.index, result.destination.index);
-
-    dispatch({ type: SET, reorderedTasks });
+    dispatch({ type: REORDER, result });
   };
 
   return (

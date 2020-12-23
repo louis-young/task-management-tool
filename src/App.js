@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from "react";
 
-import { CREATE, DELETE, UPDATE, SET } from "./actions/types";
+import { CREATE, DELETE, UPDATE, REORDER } from "./actions/types";
 
 import Form from "./components/Form/Form";
 import List from "./components/List/List";
@@ -14,10 +14,16 @@ const init = () => {
 };
 
 const reducer = (tasks, action) => {
-  const { type, task, updatedTask, id, reorderedTasks } = action;
+  const { type, task, updatedTask, id, result } = action;
 
   switch (type) {
-    case SET:
+    case REORDER:
+      const reorderedTasks = Array.from(tasks);
+
+      const [removed] = reorderedTasks.splice(result.source.index, 1);
+
+      reorderedTasks.splice(result.destination.index, 0, removed);
+
       return reorderedTasks;
     case CREATE:
       return [...tasks, task];
