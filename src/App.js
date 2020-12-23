@@ -14,7 +14,7 @@ const init = () => {
 };
 
 const reducer = (tasks, action) => {
-  const { type, task, editedTask, id } = action;
+  const { type, task, updatedTask, id } = action;
 
   switch (type) {
     case CREATE:
@@ -23,11 +23,11 @@ const reducer = (tasks, action) => {
       return tasks.filter((task) => task.id !== id);
     case UPDATE:
       return tasks.map((task) => {
-        if (task.id !== editedTask.id) {
+        if (task.id !== updatedTask.id) {
           return task;
         }
 
-        return { ...task, text: editedTask.text };
+        return { ...task, text: updatedTask.text };
       });
     default:
       throw new Error();

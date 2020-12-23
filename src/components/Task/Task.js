@@ -20,12 +20,12 @@ const Task = ({ task, dispatch }) => {
   };
 
   const updateTask = () => {
-    const editedTask = {
+    const updatedTask = {
       id,
       text: value,
     };
 
-    dispatch({ type: UPDATE, editedTask });
+    dispatch({ type: UPDATE, updatedTask });
   };
 
   const submit = (event) => {
