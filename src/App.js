@@ -27,7 +27,7 @@ const reducer = (tasks, action) => {
           return task;
         }
 
-        return { id: editedTask.id, text: editedTask.text };
+        return { ...task, text: editedTask.text };
       });
     default:
       throw new Error();
