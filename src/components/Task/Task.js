@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 
 import { DELETE, UPDATE } from "../../actions/types";
 
+import Handle from "../Handle/Handle";
+
 import icon from "../../assets/delete.svg";
 
 import "./Task.scss";
@@ -44,9 +46,7 @@ const Task = forwardRef(({ task, dispatch, draggable, handle }, ref) => {
       ref={ref}
       {...draggable}
     >
-      <button className="handle" {...handle}>
-        <span className="handle__line"></span>
-      </button>
+      <Handle handle={handle} />
       <input
         value={value}
         onChange={(event) => setValue(event.target.value)}
@@ -60,9 +60,7 @@ const Task = forwardRef(({ task, dispatch, draggable, handle }, ref) => {
     </form>
   ) : (
     <li className="task" onClick={() => setEditing((editing) => !editing)} ref={ref} {...draggable}>
-      <button className="handle" {...handle}>
-        <span className="handle__line"></span>
-      </button>
+      <Handle handle={handle} />
       <p className="task__text">{text}</p>
       <button onClick={deleteTask} className="task__delete">
         <img className="task__icon" src={icon} alt="Delete" />
