@@ -1,32 +1,36 @@
 @import "../../stylesheets/abstracts/variables";
 @import "../../stylesheets/abstracts/extends";
+@import "../../stylesheets/abstracts/breakpoints";
 
 .task {
   @extend %round;
   $self: &;
-  background: #fcfcfc;
+  background: $light-grey;
   display: grid;
-  grid-template-columns: 1fr auto;
-  grid-gap: 2rem;
-  align-items: flex-start;
+  grid-template-columns: auto 1fr auto;
+  grid-gap: 1rem;
+  align-items: center;
   transition: background 0.2s ease-in-out;
   &:hover {
-    background: #f1f7ff;
+    background: $primary-color-light;
 
     #{$self}__icon {
       opacity: 0.8;
     }
   }
   &--editable {
-    background: #f1f7ff;
+    background: $primary-color-light;
   }
   &__text,
   &__input,
   &__delete {
     padding: 1rem;
   }
-  &__text {
+  &__text,
+  &__input {
     line-height: 1.5;
+    padding-left: unset;
+    padding-right: unset;
   }
   &__delete {
     background: unset;
@@ -39,7 +43,7 @@
     opacity: 0.8;
     transition: all 0.2s ease-in-out;
     &:hover {
-      transform: rotate(90deg);
+      transform: rotate(360deg);
     }
   }
   &__input {
@@ -47,5 +51,42 @@
     box-shadow: unset;
     background: transparent;
     outline: none;
+  }
+}
+
+.handle {
+  $self: &;
+  width: 25px;
+  height: 15px;
+  background: transparent;
+  position: relative;
+  padding: initial;
+  cursor: pointer;
+  border: unset;
+  transition: all 0.35s ease-in-out;
+  z-index: 4;
+  outline: none;
+  color: $dark-background;
+  margin: 1rem;
+  margin-right: unset;
+  &:before,
+  &:after,
+  &__line {
+    @extend %pseudo;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: $dark-background;
+    transition: all 0.25s ease-in-out;
+  }
+  &:before {
+    top: 0;
+  }
+  &:after {
+    top: 100%;
+  }
+  &__line {
+    top: 50%;
   }
 }

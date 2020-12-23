@@ -11,12 +11,14 @@ $accent-color: tan;
 $light-background: #ffffff;
 $dark-background: #222b33;
 
+$light-grey: #fcfcfc;
+
 $ratio: 15%;
 
 $transparency: 0.3;
 
 $primary-color-dark: darken($primary-color, $ratio);
-$primary-color-light: lighten($primary-color, $ratio);
+$primary-color-light: #f1f7ff;
 $primary-color-transparent: transparentize($primary-color, $transparency);
 
 $secondary-color-dark: darken($secondary-color, $ratio);

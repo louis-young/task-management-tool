@@ -15,21 +15,24 @@ const List = ({ tasks, dispatch }) => {
         <DragDropContext>
           <Droppable droppableId="tasks">
             {(provided) => (
-              <ul className="list" {...provided.droppableProps} ref={provided.innerRef}>
-                {tasks.map((task, index) => (
-                  <Draggable key={task.id} draggableId={task.id} index={index}>
-                    {(provided) => (
-                      <Task
-                        task={task}
-                        dispatch={dispatch}
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                      />
-                    )}
-                  </Draggable>
-                ))}
-              </ul>
+              <>
+                <ul className="list" {...provided.droppableProps} ref={provided.innerRef}>
+                  {tasks.map((task, index) => (
+                    <Draggable key={task.id} draggableId={task.id} index={index}>
+                      {(provided) => (
+                        <Task
+                          task={task}
+                          dispatch={dispatch}
+                          ref={provided.innerRef}
+                          draggable={provided.draggableProps}
+                          handle={provided.dragHandleProps}
+                        />
+                      )}
+                    </Draggable>
+                  ))}
+                </ul>
+                {provided.placeholder}
+              </>
             )}
           </Droppable>
         </DragDropContext>
