@@ -5,7 +5,6 @@
   @extend %round;
   $self: &;
   background: #fcfcfc;
-  padding: 1rem 1.25rem;
   display: grid;
   grid-template-columns: 1fr auto;
   grid-gap: 2rem;
@@ -18,23 +17,35 @@
       opacity: 0.8;
     }
   }
+  &--editable {
+    background: #f1f7ff;
+  }
+  &__text,
+  &__input,
+  &__delete {
+    padding: 1rem;
+  }
   &__text {
-    padding: unset;
     line-height: 1.5;
   }
   &__delete {
     background: unset;
-    padding: unset;
     border: unset;
     cursor: pointer;
     outline: none;
   }
   &__icon {
-    width: 25px;
-    opacity: 0.6;
+    width: 20px;
+    opacity: 0.8;
     transition: all 0.2s ease-in-out;
     &:hover {
       transform: rotate(90deg);
     }
+  }
+  &__input {
+    line-height: 1.5;
+    box-shadow: unset;
+    background: transparent;
+    outline: none;
   }
 }

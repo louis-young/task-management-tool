@@ -1,29 +1,43 @@
 import React, { useReducer, useEffect } from "react";
 
-import { CREATE, DELETE } from "./actions/types";
+import { CREATE, DELETE, UPDATE } from "./actions/types";
 
 import Form from "./components/Form/Form";
 import List from "./components/List/List";
 
 import "./stylesheets/main.scss";
 
+const init = () => {
+  const tasks = localStorage.tasks ? JSON.parse(localStorage.tasks) : [];
+
+  return tasks;
+};
+
 const reducer = (tasks, action) => {
-  const { type, task, id } = action;
+  const { type, task, editedTask, id } = action;
 
   switch (type) {
     case CREATE:
       return [...tasks, task];
     case DELETE:
       return tasks.filter((task) => task.id !== id);
+    case UPDATE:
+      return tasks.map((task) => {
+        if (task.id !== editedTask.id) {
+          return task;
+        }
+
+        return { id: editedTask.id, text: editedTask.text };
+      });
     default:
-      throw new Error(`Unexpected action.`);
+      throw new Error();
   }
 };
 
-const initialTasks = localStorage.tasks ? JSON.parse(localStorage.tasks) : [];
+const initialTasks = [];
 
 const App = () => {
-  const [tasks, dispatch] = useReducer(reducer, initialTasks);
+  const [tasks, dispatch] = useReducer(reducer, initialTasks, init);
 
   useEffect(() => {
     localStorage.tasks = JSON.stringify(tasks);

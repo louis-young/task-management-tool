@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 
 import PropTypes from "prop-types";
 
@@ -12,8 +12,6 @@ const initialValue = "";
 
 const Form = ({ dispatch }) => {
   const [value, setValue] = useState(initialValue);
-
-  const inputRef = useRef();
 
   const createTask = () => {
     const id = uuidv4();
@@ -33,8 +31,6 @@ const Form = ({ dispatch }) => {
     createTask();
 
     setValue(initialValue);
-
-    inputRef.current.focus();
   };
 
   return (
@@ -45,7 +41,6 @@ const Form = ({ dispatch }) => {
           setValue(event.target.value);
         }}
         value={value}
-        ref={inputRef}
         autoFocus
         required
       />
