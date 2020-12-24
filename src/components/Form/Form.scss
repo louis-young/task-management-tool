@@ -3,11 +3,12 @@
 @import "../../stylesheets/abstracts/breakpoints";
 
 .form {
-  margin-top: 4rem;
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 1rem;
   @include tablet {
+    margin-top: 4rem;
     grid-template-columns: 1fr auto;
   }
   &__input,
