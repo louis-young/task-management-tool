@@ -1,6 +1,6 @@
 # Task Manager
 
-React application to manage and locally persist tasks.
+A React application to manage and locally persist tasks.
 
 ![Task Manager](documentation/task-manager.jpg)
 
