@@ -1,6 +1,6 @@
 # Task Manager
 
-A task management application with local storage written in React.
+A task management application with local persistence - built with React.
 
 ![Task Manager](documentation/task-manager.jpg)
 
