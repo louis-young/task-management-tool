@@ -1,8 +1,8 @@
-# Task Manager
+# Task Management Tool
 
 A task management tool that persists tasks locally.
 
-![Task Manager](documentation/task-manager.jpg)
+![Task Management Tool](documentation/task-management-tool.jpg)
 
 ## Description
 
