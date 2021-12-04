@@ -1,3 +1,5 @@
+⚠️ Please note that this is an old project and does not reflect the quality of my current work.
+
 # Task Management Tool
 
 A task management tool that persists tasks locally.
