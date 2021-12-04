@@ -8,11 +8,15 @@ A task management tool that persists tasks locally.
 
 A task management tool that allows you to manage tasks you need to complete. It has a slick and intuitive user interface with features such as inline editing, local storage persistence and drag-and-drop.
 
-Built with React and TypeScript.
-
 ## Motivation
 
 This project was to learn moe about React reducers and state management specifically.
+
+## Technologies
+
+- JavaScript.
+- React.
+- React Drag and Drop.
 
 ### Available Scripts
 
