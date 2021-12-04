@@ -19,6 +19,10 @@ This project was to learn moe about React reducers and state management specific
 - Sass (BEM).
 - React Drag and Drop.
 
+---
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 ### Available Scripts
 
 In the project directory, you can run:
