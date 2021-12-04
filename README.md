@@ -16,6 +16,7 @@ This project was to learn moe about React reducers and state management specific
 
 - JavaScript.
 - React.
+- Sass (BEM).
 - React Drag and Drop.
 
 ### Available Scripts
