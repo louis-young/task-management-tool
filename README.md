@@ -1,12 +1,12 @@
 # Task Manager
 
-A task management application with local persistence - built with React.
+A task management tool that persists tasks locally.
 
 ![Task Manager](documentation/task-manager.jpg)
 
 ## Description
 
-A task management application that allows you to manage and persist tasks you need to complete. It has a slick and intuitive user interface with features such as inline editing and drag-and-drop.
+A task management tool that allows you to manage tasks you need to complete. It has a slick and intuitive user interface with features such as inline editing, local storage persistence and drag-and-drop.
 
 ## Motivation
 
